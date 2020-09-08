@@ -1,4 +1,4 @@
 # 以下文件或文件夹,不做提交
 .DS_Store
 node_modules
-/dist
+dist

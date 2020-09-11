@@ -1,8 +1,8 @@
-# vue-press
+> 🍭 vue-press
 
 ## Project setup
 ```
-npm install
+npm install -D vuepress
 ```
 
 ### Compiles and hot-reloads for development

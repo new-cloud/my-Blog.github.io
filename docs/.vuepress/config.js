@@ -10,7 +10,9 @@ module.exports = {
                 link: '/note',
                 items: [
                   { text: 'javascript', link: '/note/javascript/' },
-                  { text: 'node', link: '/note/node/' }
+                  { text: 'node', link: '/note/node/' },
+                  { text: '经典面试题集合', link: '/note/interview/' },
+                  { text: '必会手写集合', link: '/note/write/' },
                 ]
             },
             { 
@@ -46,6 +48,22 @@ module.exports = {
                     ]
                 },
             ],
+            '/note/interview/': [
+                '',
+                {
+                    title: 'javascript篇',
+                    path: '/note/interview/javascript/',
+                    collapsable: false,
+                    sidebarDepth: 2,
+                    children: [
+                        '/note/interview/javascript/variable',
+                    ]
+                },
+            ],
+            '/note/write/': [
+                '',
+                '/note/write/promise'
+            ]
         },
     },
     dest: './docs/.vuepress/dist',

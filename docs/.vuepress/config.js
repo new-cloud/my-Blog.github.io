@@ -47,6 +47,15 @@ module.exports = {
                         '/note/javascript/introduction/dataType',
                     ]
                 },
+                {
+                    title: 'ES6',
+                    path: '/note/javascript/ES6/',
+                    collapsable: false,
+                    sidebarDepth: 2,
+                    children: [
+                        '/note/javascript/ES6/setMap',
+                    ]
+                },
             ],
             '/note/interview/': [
                 '',

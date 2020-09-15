@@ -6,7 +6,7 @@ Promise 是异步编程的一种解决方案，比传统的解决方案——回
 :::
 
 参考promiseA+规范总结: 
-我们知道promise中共有三种状态
-* pending 过渡态
-* fulfilled 完成态
-* rejected 失败态
++ 我们知道promise中共有三种状态
+    * pending 过渡态
+    * fulfilled 完成态
+    * rejected 失败态

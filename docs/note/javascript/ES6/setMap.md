@@ -26,3 +26,25 @@ a.add(11);  //增加
 a.delete(11);  //删除
 a.size  //长度
 ```
+### title3
+判断一个对象（obj） 是否包含某个值（b）
+### title3-01
+
+``` js
+//也可以用于判断一个对象是否包含另外一个对象
+let obj = {
+    c: {
+        age: 10
+    },
+    a: {
+        name: 'xx'
+    }
+};
+let b = obj.a;
+let set = new Set();
+Object.keys(obj).forEach(item=>{
+    set.add(obj[item]);
+});
+//has() 方法  传入一个参数，判断是否这个值是否包含在set类数组对象当中
+console.log(set.has(b));  //返回true
+```

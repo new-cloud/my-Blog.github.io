@@ -13,6 +13,7 @@ module.exports = {
                   { text: 'node', link: '/note/node/' },
                   { text: '经典面试题集合', link: '/note/interview/' },
                   { text: '必会手写集合', link: '/note/write/' },
+                  { text: '前端设计模式', link: '/note/designPatterns/' },
                 ]
             },
             { 
@@ -66,12 +67,21 @@ module.exports = {
                     sidebarDepth: 2,
                     children: [
                         '/note/interview/javascript/variable',
+                        '/note/interview/javascript/fn',
+                        '/note/interview/javascript/algorithm',
                     ]
                 },
             ],
             '/note/write/': [
                 '',
                 '/note/write/promise'
+            ],
+            '/note/designPatterns/': [
+                '',
+                {
+                    title: '发布订阅（Pub-Sub）',
+                    path: '/note/designPatterns/pubSub',
+                },
             ]
         },
     },

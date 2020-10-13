@@ -54,6 +54,8 @@ module.exports = {
                     collapsable: false,
                     sidebarDepth: 2,
                     children: [
+                        '/note/javascript/ES6/class',
+                        '/note/javascript/ES6/symbol',
                         '/note/javascript/ES6/setMap',
                     ]
                 },
@@ -74,7 +76,8 @@ module.exports = {
             ],
             '/note/write/': [
                 '',
-                '/note/write/promise'
+                '/note/write/promise',
+                '/note/write/call'
             ],
             '/note/designPatterns/': [
                 '',

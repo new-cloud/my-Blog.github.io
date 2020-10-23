@@ -46,6 +46,21 @@ module.exports = {
                         '/note/javascript/introduction/grammar',
                         '/note/javascript/introduction/variable',
                         '/note/javascript/introduction/dataType',
+                        '/note/javascript/introduction/operator',
+                        '/note/javascript/introduction/processControl',
+                        '/note/javascript/introduction/object',
+                        '/note/javascript/introduction/function',
+                        '/note/javascript/introduction/Array',
+                        '/note/javascript/introduction/error',
+                        '/note/javascript/introduction/supplement',
+                    ]
+                },
+                {
+                    title: '核心内容',
+                    path: '/note/javascript/core/',
+                    collapsable: false,
+                    sidebarDepth: 2,
+                    children: [
                     ]
                 },
                 {
@@ -71,6 +86,7 @@ module.exports = {
                     children: [
                         '/note/interview/javascript/variable',
                         '/note/interview/javascript/fn',
+                        '/note/interview/javascript/prototype',
                         '/note/interview/javascript/algorithm',
                     ]
                 },

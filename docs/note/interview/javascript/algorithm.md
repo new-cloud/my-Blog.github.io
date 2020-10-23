@@ -12,10 +12,12 @@ let arr = [1,2,[3,4, [5,6, [7, [8, 9, 10]]]]];
 //调用方法后返回  [1,2,3,4,5,6,7,8,9,10]
 ```
 ``` js
-//方法1  利用ES6的flat方法，Array.prototype.flat()用于将嵌套的数组“拉平”，变成一维数组
+//方法1  利用ES6的flat方法
+//Array.prototype.flat()用于将嵌套的数组“拉平”，变成一维数组
 //[1, 2, [3, 4]].flat()
 // [1, 2, 3, 4]
-//flat()默认只会“拉平”一层，如果想要“拉平”多层的嵌套数组，可以将flat()方法的参数写成一个整数，表示想要拉平的层数，默认为1
+//flat()默认只会“拉平”一层，如果想要“拉平”多层的嵌套数组
+//可以将flat()方法的参数写成一个整数，表示想要拉平的层数，默认为1
 //如果不管有多少层嵌套，都要转成一维数组，可以用Infinity关键字作为参数
 arr.flat(Infinity);
 //后续拓展还有flatMap()方法.....
@@ -39,7 +41,7 @@ console.log(arr.flatten());  //  [1,2,3,4,5,6,7,8,9,10]
 ## 数组去重。
 ``` js
 let arr = [1, 1, '1', 17, true, true, false, false, 'true', 'a', {}, {}];
-//调用方法后返回  [1,2,3,4,5,6,7,8,9,10]
+//调用方法后返回  [1,17,'1',true,false,'true','a',{}];
 ```
 方法一：利用Set
 ``` js
@@ -86,6 +88,17 @@ const unique1 = arr => {
       }
       return res;
     }
+```
+方法五、利用hasOwnProperty
+``` js
+    function unique(arr){
+        let obj = {};
+        return arr.filter(item=>{
+            return obj.hasOwnProperty(typeof item + item) ? 
+            false : (obj[typeof item + item] = true)
+        })
+    }
+    console.log(unique(arr)); //可以去掉相同的空对象
 ```
 ## 打印出当前网页使用了多少种HTML元素
 一行代码可以解决：

@@ -51,5 +51,4 @@
     }
     console.log(add()); //12
     
-    
 ```

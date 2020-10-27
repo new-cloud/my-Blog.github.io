@@ -49,6 +49,7 @@ console.log(s1 === s2); //ture
 //衍生对象
 class Warr extends Array{  //创建一个类newArr 继承 Array类
     constructor(...arg){
+        //在这里super相当于把Array的constructor给执行了,并且让方法中的this是Warr的实例
         super(...arg);
     }
 }

@@ -27,3 +27,28 @@
     })
 
 ```
+## 关于()的运用
+
+``` js
+    //例子1
+    Number.prototype.add = function(){
+        return 1;
+    }
+    // console.log(5.add());  //报错提示 Invalid or unexpected token
+    console.log((5).add());  //  1
+
+    //例子2
+    function add(){
+        return 
+            12
+    }
+    console.log(add()); //undefined
+
+    function add(){
+        return (
+            12
+        )
+    }
+    console.log(add()); //12
+    
+```

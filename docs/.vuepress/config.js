@@ -72,6 +72,7 @@ module.exports = {
                         '/note/javascript/ES6/class',
                         '/note/javascript/ES6/proxy',
                         '/note/javascript/ES6/symbol',
+                        '/note/javascript/ES6/Decorator',
                         '/note/javascript/ES6/setMap',
                     ]
                 },

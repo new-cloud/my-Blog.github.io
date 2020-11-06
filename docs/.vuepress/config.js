@@ -9,7 +9,8 @@ module.exports = {
                 text: '技术笔记',
                 link: '/note',
                 items: [
-                  { text: 'javascript', link: '/note/javascript/' },
+                  { text: 'JavaScript', link: '/note/javascript/' },
+                  { text: 'TypeScript', link: '/note/TypeScript/' },
                   { text: 'node', link: '/note/node/' },
                   { text: '经典面试题集合', link: '/note/interview/' },
                   { text: '必会手写集合', link: '/note/write/' },
@@ -76,6 +77,18 @@ module.exports = {
                         '/note/javascript/ES6/setMap',
                     ]
                 },
+            ],
+            '/note/TypeScript/': [
+                '',
+                {
+                    title: '执行环境',
+                    path: '/note/TypeScript/science'
+                },
+                {
+                    title: '数据类型',
+                    path: '/note/TypeScript/dataType'
+                },
+
             ],
             '/note/interview/': [
                 '',

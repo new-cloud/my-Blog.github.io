@@ -91,3 +91,30 @@ let member_sex:Sex = Sex.FEMALE;
 console.log(checkSex(member_sex)) // 女
 
 ```
+## any
+如果值可能来自于动态的内容，比如来自用户输入或第三方代码库。
+
+这种情况下，我们不希望类型检查器对这些值进行检查而是直接让它们通过编译阶段的检查。
+
+那么我们可以使用 any类型来标记这些变量：
+``` js
+let notSure: any = 4;
+notSure = "maybe a string instead";
+notSure = false; // ok
+
+```
+
+## Void
+* void类型像是与any类型相反，它表示没有任何类型。一个函数没有返回值时，你通常会见到其返回值类型是 void
+
+``` ts
+    //当需要规定一个函数必须有返回值,并且值还是规定的类型
+    function sdd():number{
+        return 1;
+    }
+    //一个函数没有返回值时，你通常会见到其返回值类型是 void
+    function add():void{
+        console.log(1)
+    }
+
+```

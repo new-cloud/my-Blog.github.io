@@ -88,7 +88,10 @@ module.exports = {
                     title: '数据类型',
                     path: '/note/TypeScript/dataType'
                 },
-
+                {
+                    title: '接口',
+                    path: '/note/TypeScript/Interface'
+                },
             ],
             '/note/interview/': [
                 '',

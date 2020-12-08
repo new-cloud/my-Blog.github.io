@@ -17,7 +17,7 @@ TS中数据类型 由JS中的数据类型延伸而来
     // 2
     let list2: Array<number> = [1, 2, 3];
     //多数据类型数组
-    let list2: Array<number | string> = [1, 2, 3];
+    let list2: Array<number | string> = [1, 2, '3'];
 
 ```
 

@@ -1,5 +1,10 @@
 # 函数高级
+::: tip TIP
+函数进阶运用
+:::
 
+
+## 高阶函数
 ::: tip TIP
 High-Order Function
 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数：
@@ -8,6 +13,80 @@ High-Order Function
 * 输出一个函数
 
 :::
+根据以上定义,发现平时使用过很多高阶函数。数组的一些高阶函数使用得尤为频繁.
+
+例如: 
+``` js 
+[1, 2, 3, 4].forEach(function(item, index, arr) {
+  console.log(item, index, arr)
+})
+[1, 2, 3, 4].map(item => `小老弟${item}`)
+
+```
+* forEach和map的就是一个函数
+
+假设有这么一个需求，存在一个数组，数组元素都是表示人的对象，我们想从数组中选出年纪最大的人。
+
+这个时候，就需要一个高阶函数来完成。
+``` js
+/**
+ * 根据求值条件判断数组中最大的项
+ * @param {Array} arr 数组
+ * @param {String|Function} iteratee 
+ * 返回一个求值表达式，可以根据对象属性的值求出最大项，比如item.age。也可以通过自定义函数返回求值表达式。
+ */
+function maxBy(arr, iteratee) {
+    let values = [];
+    if (typeof iteratee === 'string') {
+        values = arr.map(item => item[iteratee]);
+    } else if (typeof iteratee === 'function') {
+        values = arr.map((item, index) => {
+            return iteratee(item, index, arr);
+        });
+    }
+    const maxOne = Math.max(...values);
+    const maxIndex = values.findIndex(item => item === maxOne);
+    return arr[maxIndex];
+}
+
+```
+利用这个高阶函数，我们就可以求出数组中年纪最大的那个人。
+``` js
+var list = [
+  {name: '小明', age: 18},
+  {name: '小红', age: 19},
+  {name: '小李', age: 20}
+]
+// 根据age字段求出最大项，结果是小李。
+var maxItem = maxBy(list, 'age');
+
+```
+我们甚至可以定义更复杂的求值规则，比如我们需要根据一个字符串类型的属性来判定优先级。
+
+这个时候，就必须传一个自定义的函数作为参数了。
+
+``` js
+const list = [
+  {name: '小明', priority: 'middle'},
+  {name: '小红', priority: 'low'},
+  {name: '小李', priority: 'high'}
+]
+const maxItem = maxBy(list, function(item) {
+  const { priority } = item
+  let obj = {
+      low: 1,
+      middle: 2,
+      high: 3
+  }
+  const priorityValue = obj[priority];
+  return priorityValue;
+});
+
+```
+<font color=#FF0000 >maxBy</font>
+接受的参数最终都应该能转化为一个
+<font color=#FF0000 >Math.max</font>
+可度量的值，否则就没有可比较性了。
 
 ## 惰性函数
 ::: tip TIP
@@ -71,3 +150,7 @@ var addEvent = (function() {
 
 ```
 ## 函数柯里化
+::: tip TIP
+在计算机科学中，柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。
+
+:::

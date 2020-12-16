@@ -62,6 +62,7 @@ module.exports = {
                     collapsable: false,
                     sidebarDepth: 2,
                     children: [
+                        '/note/javascript/core/function'
                     ]
                 },
                 {

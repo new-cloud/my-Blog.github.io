@@ -67,7 +67,9 @@ export default {
 从上面的代码得出结论：控制所有的loading状态的变量只有一个，只是根据变量的值来区分每个按钮的loading的状态
 
 所以改进为：
+
 ### httm 部分
+
 ```html
     <el-button type='info' class="btn" @click="upload" :loading="loadingBtn == 'upload'">
         上传

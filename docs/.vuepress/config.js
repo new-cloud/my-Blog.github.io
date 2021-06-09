@@ -15,6 +15,7 @@ module.exports = {
                   { text: '经典面试题集合', link: '/note/interview/' },
                   { text: '必会手写集合', link: '/note/write/' },
                   { text: '前端设计模式', link: '/note/designPatterns/' },
+                  { text: '前端框架', link: '/note/frame/' },
                 ]
             },
             { 
@@ -128,6 +129,18 @@ module.exports = {
                 {
                     title: '发布订阅（Pub-Sub）',
                     path: '/note/designPatterns/pubSub',
+                },
+            ],
+            '/note/frame/': [
+                '',
+                {
+                    title: 'vue',
+                    path: '/note/frame/vue',
+                    collapsable: false,
+                    sidebarDepth: 2,
+                    children: [
+                        '/note/frame/vue/loading'
+                    ]
                 },
             ]
         },

@@ -8,5 +8,8 @@
     "build": "vuepress build docs"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
 }

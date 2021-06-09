@@ -108,6 +108,15 @@ module.exports = {
                         '/note/interview/javascript/algorithm',
                     ]
                 },
+                {
+                    title: '框架篇',
+                    path: '/note/interview/frame/',
+                    collapsable: false,
+                    sidebarDepth: 2,
+                    children: [
+                        '/note/interview/frame/vue'
+                    ]
+                },
             ],
             '/note/write/': [
                 '',

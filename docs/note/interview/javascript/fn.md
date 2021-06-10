@@ -35,3 +35,26 @@ console.log(add(1)(2)(3)(4)(5))          // 15
 
 ```
 
+toString隐式转换的特性：在Function需要转换为字符串时，通常会自动调用函数的 toString 方法
+例子：
+``` js
+function test() {
+    function fn() {
+		console.log('我是fn')
+	}
+    fn.toString = () => {
+        console.log('toString()')
+        return 'toString'
+    }
+    return fn
+}
+console.log(test())
+//这句代码执行后会打印出
+//f return toString
+```
+
+当执行 test() 之后会返回一个 function fn(typeof test()=== function),
+
+<font color=#FF0000 >但是此时会自动调用函数的 toString(),所以返回了 字符串’toString’</font>
+
+如果没有重写 toString() 则会返回函数的字符串形式(返回结果: ƒ fn(){console.log(‘我是fn’)})

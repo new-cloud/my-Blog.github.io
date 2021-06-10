@@ -39,7 +39,7 @@ export default {
         }
     }
     methods: {
-        handleTestBlur(e) {
+        handleClick(e) {
             console.log(e.target);
             this.loadingBtn = e.target.getAttribute('data-index')
         },

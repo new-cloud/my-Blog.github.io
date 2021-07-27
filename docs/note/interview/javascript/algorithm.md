@@ -107,3 +107,102 @@ const unique1 = arr => {
       return [...new Set([...document.querySelectorAll('*')].map(el => el.tagName))].length;
     }
 ```
+## 扁平数据结构转Tree
+非常常见的需求，后台返回一个扁平的数据结构，转成树
+``` js
+	let arr = [
+	    {id: 1, name: '部门1', pid: 0},
+	    {id: 2, name: '部门2', pid: 1},
+	    {id: 3, name: '部门3', pid: 1},
+	    {id: 4, name: '部门4', pid: 3},
+	    {id: 5, name: '部门5', pid: 4},
+	    {id: 5, name: '部门5', pid: 0},
+		// arr 的长度不固定，并且pid下的children层级也没有最大限制
+		...
+	]
+	// 需要输出
+	[
+	    {
+	        "id": 1,
+	        "name": "部门1",
+	        "pid": 0,
+	        "children": [
+	            {
+	                "id": 2,
+	                "name": "部门2",
+	                "pid": 1,
+	                "children": []
+	            },
+	            {
+	                "id": 3,
+	                "name": "部门3",
+	                "pid": 1,
+	                "children": [
+	                    // 结果 ,,,
+	                ]
+	            }
+	        ]
+	    }
+	]
+```
+最容易想到的思路是提供一个递getChildren的方法，该方法递归去查找子集。
+就这样，不用考虑性能，无脑去查，大多数人只知道递归，就是写不出来。。。
+``` js
+/**
+ * 递归查找，获取children
+ */
+const getChildren = (data, result, pid) => {
+  for (const item of data) {
+    if (item.pid === pid) {
+      const newItem = {...item, children: []};
+      result.push(newItem);
+      getChildren(data, newItem.children, item.id);
+    }
+  }
+}
+
+/**
+* 转换方法
+* pid 作为每次调用getChildren开始向下递归的值
+*/
+const arrayToTree = (data, pid) => {
+  const result = [];
+  getChildren(data, result, pid)
+  return result;
+}
+// 最后调用arrayToTree得到数据树
+arrayToTree(arr)
+```
+从上面的代码我们分析，该实现的时间复杂度为O(2^n)。
+从算法层面看这是一个不可用的时间复杂度。所带来的性能损耗也是巨大的！
+所以我们开始寻求最优解: 利用Map数据结构和对象的引用关系来实现性能会更好。
+``` js
+	function arrayToTree(items) {
+      	const result = [];   // 存放结果集
+      	const itemMap = {};  //map对象
+
+      	for (const item of items) {
+      	  const id = item.id;
+      	  const pid = item.pid;
+
+			// 将所有数据都转化为map数据结构储存在itemMap中
+      	  itemMap[id] = {...item, children: []}
+
+      	  const treeItem =  itemMap[id];
+      	  if (pid === 0) {
+      	    result.push(treeItem);
+      	  } else {
+      	    if (!itemMap[pid]) {
+      	      itemMap[pid] = {
+      	        children: [],
+      	      }
+      	    }
+      	    itemMap[pid].children.push(treeItem)
+      	  }
+	
+      	}
+      	return result;
+    }
+	// 最后调用arrayToTree得到数据树
+	arrayToTree(arr)
+```

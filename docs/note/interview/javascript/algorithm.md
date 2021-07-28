@@ -186,7 +186,11 @@ arrayToTree(arr)
       	  const pid = item.pid;
 
 			// 将所有数据都转化为map数据结构储存在itemMap中
-      	  itemMap[id] = {...item, children: []}
+			if (itemMap[id]) {
+			itemMap[id] = {...item, ...itemMap[id]}
+			} else {
+				itemMap[id] = {...item, children: []}
+			}
 
       	  const treeItem =  itemMap[id];
       	  if (pid === 0) {

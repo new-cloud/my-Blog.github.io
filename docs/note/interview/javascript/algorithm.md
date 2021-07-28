@@ -182,8 +182,8 @@ arrayToTree(arr)
       	const itemMap = {};  //map对象
 
       	for (const item of items) {
-      	  const id = item.id;
-      	  const pid = item.pid;
+      	  	const id = item.id;
+      	  	const pid = item.pid;
 
 			// 将所有数据都转化为map数据结构储存在itemMap中
 			if (itemMap[id]) {
@@ -192,17 +192,17 @@ arrayToTree(arr)
 				itemMap[id] = {...item, children: []}
 			}
 
-      	  const treeItem =  itemMap[id];
-      	  if (pid === 0) {
-      	    result.push(treeItem);
-      	  } else {
-      	    if (!itemMap[pid]) {
-      	      itemMap[pid] = {
-      	        children: [],
-      	      }
-      	    }
-      	    itemMap[pid].children.push(treeItem)
-      	  }
+      	  	const treeItem =  itemMap[id];
+      	  	if (pid === 0) {
+      	  	  result.push(treeItem);
+      	  	} else {
+      	  	  if (!itemMap[pid]) {
+      	  	    itemMap[pid] = {
+      	  	      children: [],
+      	  	    }
+      	  	  }
+      	  	  itemMap[pid].children.push(treeItem)
+      	  	}
 	
       	}
       	return result;

@@ -187,7 +187,7 @@ arrayToTree(arr)
 
 			// 将所有数据都转化为map数据结构储存在itemMap中
 			// 这里的判断是防止第一条数据的pid不是0的情况下
-			// 下面的判断会提前添加 数据到map 所以这里需要判断是否存在此项
+			// 下面的判断会提前添加 数据到map对象 所以这里需要判断是否存在此项
 			if (itemMap[id]) { 
 				itemMap[id] = {...item, ...itemMap[id]}
 			} else {

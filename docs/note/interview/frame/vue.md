@@ -16,3 +16,104 @@ Vue 使用的是 web前端 开发者更熟悉的模板与特性，Vue的API跟�
 
 :::
 
+## 虚拟列表——高性能渲染10W+数据
+
+html 代码如下
+``` html
+<template>
+    <div class="list-view" @scroll="handleScroll">
+        <div class="list-view-phantom" :style="{height: contentHeight}"></div>
+        <div ref="content" class="list-view-content">
+            <div
+              class="list-view-item"
+              :style="{height: itemHeight + 'px'}"
+              v-for="(item, index) in visibleData" :key="index">
+                {{ item }}
+            </div>
+        </div>
+    </div>
+</template>
+```
+
+``` css
+.list-view {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+.list-view-phantom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.list-view-content {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.list-view-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  background: red;
+  color: #666;
+  line-height: 100px;
+  box-sizing: border-box;
+}
+```
+
+``` js
+export default {
+  name: 'ListView',
+
+  props: {
+    itemHeight: {
+      type: Number,
+      default: 100
+    }
+  },
+  data () {
+    return {
+      data: [],
+      visibleData: []
+    }
+  },
+  created () {
+    for (let i = 0; i < 1000; i++) {
+        this.data.push(i)
+    }
+  },
+  computed: {
+    contentHeight () {
+      return this.data.length * this.itemHeight + 'px'
+    }
+  },
+  mounted () {
+    this.updateVisibleData()
+  },
+  methods: {
+    updateVisibleData (scrollTop) {
+      scrollTop = scrollTop || 0
+      console.log('scrollTop>>>>>>>>>>>>>>', scrollTop)
+      const visibleCount = Math.ceil(this.$el.clientHeight / this.itemHeight)
+      console.log('visibleCount>>>>>>>>', visibleCount)
+      const start = Math.floor(scrollTop / this.itemHeight)
+      console.log('start>>>>>>>>', start)
+      const end = start + visibleCount
+      console.log('end>>>>>>>>', end)
+      this.visibleData = this.data.slice(start, end)
+      this.$refs.content.style.webkitTransform = `translate3d(0, ${start * this.itemHeight}px, 0)`
+    },
+
+    handleScroll () {
+      const scrollTop = this.$el.scrollTop
+      this.updateVisibleData(scrollTop)
+    }
+  }
+}
+```

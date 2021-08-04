@@ -68,7 +68,7 @@ MyPromise.prototype.then = function (onFulfilled,onRejected) {
     }
 }
 ```
-然后在回调栈去调用成功或者失败的回调
+然后在回调栈去调用成功或者失败的回调，修改MyPromise中的resolve和reject
 ``` js
 function resolve(value) {
     if (_this.state === PENDING) {

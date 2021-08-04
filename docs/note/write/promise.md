@@ -37,6 +37,7 @@ function MyPromise(fn){
     function reject(value) {
         if (_this.state === PENDING) {
             _this.state = REJECTED;
+            _this.value = value
         }
     }
     try{
@@ -82,6 +83,7 @@ function resolve(value) {
 function reject(value) {
     if (_this.state === PENDING) {
         _this.state = REJECTED;
+        _this.value = value
         _this.rejectedCallbacks.forEach(myFn => myFn());
     }
 }
@@ -138,9 +140,9 @@ MyPromise.prototype.then = function (onFulfilled,onRejected) {
 那么根据Promise+的规范,我们还需要在外层添加一个resolvePromise函数去做相应的处理
 那么首先在要将.then方法内的resolve(x)全部替换为resolvePromise函数执行,继续改造.then函数
 ``` js
-MyPromise.prototype.then = function (onFulfilled,onRejected) {
+MyPromise.prototype.then = function (onFulfilled, onRejected) {
     const _this = this;
-    const proMise2 = new MyPromise((resolve,reject)=>{
+    const proMise2 = new MyPromise((resolve, reject)=>{
         if (_this.state === PENDING) {
             //为了在resolvePromise方法中能获取到proMise2 要将resolvePromise放入事件队列中最后执行
             setTimeout(()=>{

@@ -31,6 +31,7 @@ function MyPromise(fn){
         if (_this.state === PENDING) {
             //并且一旦成功或者失败_this.state的状态将不再改变
             _this.state = FULFILLED;
+            _this.value = value
         }
     }
     function reject(value) {
@@ -73,6 +74,7 @@ MyPromise.prototype.then = function (onFulfilled,onRejected) {
 function resolve(value) {
     if (_this.state === PENDING) {
         _this.state = FULFILLED;
+        _this.value = value
         //执行回调方法，reject函数同理
         _this.fulfilledCallbacks.forEach(myFn => myFn());
     }

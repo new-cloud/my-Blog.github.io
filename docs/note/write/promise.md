@@ -101,7 +101,12 @@ MyPromise.prototype.then = function (onFulfilled,onRejected) {
                 //监听上一次.then是否有返回错误信息
                 try{
                     let x = onFulfilled(_this.value);
-                    resolve(x);  //完成链式调用
+                    //完成链式调用
+                    if (x instanceof MyPromise) {
+                        x.then(resolve);
+                    } else {
+                        resolve(x);
+                    }
                 } catch(err) {
                     reject(err);
                 }

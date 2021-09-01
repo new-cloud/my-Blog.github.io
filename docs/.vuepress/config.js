@@ -130,6 +130,10 @@ module.exports = {
                     title: '发布订阅（Pub-Sub）',
                     path: '/note/designPatterns/pubSub',
                 },
+                {
+                    title: '策略模式动态表单验证',
+                    path: '/note/designPatterns/strategy',
+                },
             ],
             '/note/frame/': [
                 '',

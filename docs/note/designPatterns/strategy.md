@@ -105,19 +105,19 @@ ElementUI 的 Form 表单 具有表单验证功能，用来校验用户输入的
 // src/utils/validates.js
 
 /* 姓名校验 由2-10位汉字组成 */
-exportfunction validateUsername(str) {
+export function validateUsername(str) {
     const reg = /^[\u4e00-\u9fa5]{2,10}$/
     return reg.test(str)
 }
 
 /* 手机号校验 由以1开头的11位数字组成  */
-exportfunction validateMobile(str) {
+export function validateMobile(str) {
     const reg = /^1\d{10}$/
     return reg.test(str)
 }
 
 /* 邮箱校验 */
-exportfunction validateEmail(str) {
+export function validateEmail(str) {
     const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
     return reg.test(str)
 }

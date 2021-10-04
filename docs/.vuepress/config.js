@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/my-Blog.github.io/',
     title: '小韭菜前端之路',    // 设置网站标题
     description: 'Hello, my friend!',
     themeConfig : {

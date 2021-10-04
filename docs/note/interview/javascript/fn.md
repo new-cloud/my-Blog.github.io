@@ -30,7 +30,8 @@ function add() {
     return _adder;
 }
 
-console.log(add(1, 2, 3)(4))             // 10
+// console.log(add(1, 2, 3)(4))             // 10
+console.log(+add(1, 2, 3)(4))             // 10
 console.log(add(1)(2)(3)(4)(5))          // 15
 
 ```
@@ -48,7 +49,10 @@ function test() {
     }
     return fn
 }
+// 现在直接打印toString 会在打印后执行
 console.log(test())
+// 所以直接隐士转换一下就能正常打印
+console.log(+test())
 //这句代码执行后会打印出
 //f return toString
 ```

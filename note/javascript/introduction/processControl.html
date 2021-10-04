@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流程控制 | 小韭菜前端之路</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Hello, my friend!">
+    
+    <link rel="preload" href="/my-Blog.github.io/assets/css/0.styles.ce04ab60.css" as="style"><link rel="preload" href="/my-Blog.github.io/assets/js/app.a754fd77.js" as="script"><link rel="preload" href="/my-Blog.github.io/assets/js/2.9f82f5ae.js" as="script"><link rel="preload" href="/my-Blog.github.io/assets/js/45.e28b1265.js" as="script"><link rel="prefetch" href="/my-Blog.github.io/assets/js/10.7018fd76.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/11.9ab2cd96.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/12.a0873db6.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/13.aa86af45.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/14.aaea6369.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/15.f86a0424.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/16.bba7be7b.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/17.c51a9c68.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/18.88a83aaa.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/19.5a07e864.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/20.ee55d786.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/21.a5bf9e01.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/22.c4c85d90.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/23.b13a3850.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/24.9e064d98.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/25.9113f497.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/26.7c390cdf.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/27.49d94ae5.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/28.c6750e54.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/29.34d0fcf0.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/3.8ddd19f9.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/30.c61d8b63.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/31.c09767e0.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/32.62dcddb1.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/33.742d0f0c.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/34.cca0f6ae.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/35.fc1021b8.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/36.a4947e34.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/37.5fc1c1e8.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/38.46f829bd.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/39.dc25524f.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/4.a1a0064b.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/40.e9299c3f.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/41.2532496c.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/42.6e3646eb.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/43.fbe43a10.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/44.8a62f728.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/46.b0ed265a.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/47.fb7edc92.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/48.625ae369.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/49.7bd9bbe2.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/5.536ca2b6.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/50.c80d0d6c.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/51.b9464e66.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/52.0621837e.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/53.c05be571.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/54.38139439.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/55.e6c178c0.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/6.2f526423.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/7.e542ad6f.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/8.8727fef1.js"><link rel="prefetch" href="/my-Blog.github.io/assets/js/9.1c20ffd5.js">
+    <link rel="stylesheet" href="/my-Blog.github.io/assets/css/0.styles.ce04ab60.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my-Blog.github.io/" class="home-link router-link-active"><img src="/my-Blog.github.io/assets/img/logo.jpg" alt="小韭菜前端之路" class="logo"> <span class="site-name can-hide">小韭菜前端之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my-Blog.github.io/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/javascript/" class="nav-link router-link-active">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/TypeScript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/interview/" class="nav-link">
+  经典面试题集合
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/write/" class="nav-link">
+  必会手写集合
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/designPatterns/" class="nav-link">
+  前端设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/frame/" class="nav-link">
+  前端框架
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开源项目" class="dropdown-title"><span class="title">开源项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="开源项目" class="mobile-dropdown-title"><span class="title">开源项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/openSourceProject/webGame/" class="nav-link">
+  web小游戏
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/openSourceProject/specialEffects/" class="nav-link">
+  炸裂的特效
+</a></li></ul></div></div><div class="nav-item"><a href="/my-Blog.github.io/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/my-Blog.github.io/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术笔记" class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="技术笔记" class="mobile-dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/javascript/" class="nav-link router-link-active">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/TypeScript/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/interview/" class="nav-link">
+  经典面试题集合
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/write/" class="nav-link">
+  必会手写集合
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/designPatterns/" class="nav-link">
+  前端设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/note/frame/" class="nav-link">
+  前端框架
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开源项目" class="dropdown-title"><span class="title">开源项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="开源项目" class="mobile-dropdown-title"><span class="title">开源项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/openSourceProject/webGame/" class="nav-link">
+  web小游戏
+</a></li><li class="dropdown-item"><!----> <a href="/my-Blog.github.io/openSourceProject/specialEffects/" class="nav-link">
+  炸裂的特效
+</a></li></ul></div></div><div class="nav-item"><a href="/my-Blog.github.io/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/my-Blog.github.io/note/javascript/" aria-current="page" class="sidebar-link">前言</a></li><li><a href="/my-Blog.github.io/note/javascript/basics.html" class="sidebar-link">javascript 概述</a></li><li><a href="/my-Blog.github.io/note/javascript/science.html" class="sidebar-link">执行环境</a></li><li><section class="sidebar-group depth-0"><a href="/my-Blog.github.io/note/javascript/introduction/" class="sidebar-heading clickable router-link-active open"><span>快速入门</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/my-Blog.github.io/note/javascript/introduction/grammar.html" class="sidebar-link">语法规范</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/variable.html" class="sidebar-link">变量</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/dataType.html" class="sidebar-link">数据类型</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/operator.html" class="sidebar-link">运算符</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html" aria-current="page" class="active sidebar-link">流程控制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html#if-语句-判断语句" class="sidebar-link">if 语句 （判断语句）</a></li><li class="sidebar-sub-header"><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html#switch-case-判断语句" class="sidebar-link">switch-case （判断语句）</a></li><li class="sidebar-sub-header"><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html#while循环-循环语句" class="sidebar-link">while循环 （循环语句）</a></li><li class="sidebar-sub-header"><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html#do-while循环-循环语句" class="sidebar-link">do-while循环 （循环语句）</a></li><li class="sidebar-sub-header"><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html#for循环-循环语句" class="sidebar-link">for循环 （循环语句）</a></li><li class="sidebar-sub-header"><a href="/my-Blog.github.io/note/javascript/introduction/processControl.html#结束循环" class="sidebar-link">结束循环</a></li></ul></li><li><a href="/my-Blog.github.io/note/javascript/introduction/object.html" class="sidebar-link">对象</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/function.html" class="sidebar-link">函数</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/Array.html" class="sidebar-link">数组</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/error.html" class="sidebar-link">常见报错</a></li><li><a href="/my-Blog.github.io/note/javascript/introduction/supplement.html" class="sidebar-link">补充</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/my-Blog.github.io/note/javascript/core/" class="sidebar-heading clickable"><span>核心内容</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/my-Blog.github.io/note/javascript/core/function.html" class="sidebar-link">函数高级</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/my-Blog.github.io/note/javascript/ES6/" class="sidebar-heading clickable"><span>ES6</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/my-Blog.github.io/note/javascript/ES6/class.html" class="sidebar-link">class</a></li><li><a href="/my-Blog.github.io/note/javascript/ES6/proxy.html" class="sidebar-link">Proxy 和 Reflect</a></li><li><a href="/my-Blog.github.io/note/javascript/ES6/symbol.html" class="sidebar-link">Symbol</a></li><li><a href="/my-Blog.github.io/note/javascript/ES6/Decorator.html" class="sidebar-link">装饰器 Decorator</a></li><li><a href="/my-Blog.github.io/note/javascript/ES6/setMap.html" class="sidebar-link">Set和Map</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="流程控制"><a href="#流程控制" class="header-anchor">#</a> 流程控制</h1> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>程序的三种基本结构</p> <p>顺序结构： 从上到下，从左到右执行的顺序，就叫做顺序结构，程序默认就是由上到下顺序执行的</p> <p>分支结构：根据不同的情况，执行对应代码</p> <p>循环结构：重复做一件事情</p></div> <h2 id="if-语句-判断语句"><a href="#if-语句-判断语句" class="header-anchor">#</a> if 语句 （判断语句）</h2> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">//当条件表达示为真  就执行  下面的的执行语句</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token comment">/* 条件表达式 */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 执行语句</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>如果if后的大括号{}中只有一行语句，大括号可以省略
+在if语句的条件表达式中，有一些默认值就是false
+undefined 、 0 、 NaN 、 false 、</p> <ul><li>if-else语句</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token comment">/* 条件表达式 */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment">// 成立执行语句</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 否则执行语句</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//举例:</span>
+ <span class="token comment">//获取两个数字中的最大值</span>
+<span class="token keyword">var</span> num1<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> num2<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>num1<span class="token operator">&gt;</span>num2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 100</span>
+</code></pre></div><ul><li>if --- else if 语句
+if-else嵌套</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token comment">/* 条件1 */</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// 成立执行语句</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token comment">/* 条件2 */</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// 成立执行语句</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token comment">/* 条件3 */</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// 成立执行语句</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 最后默认执行语句</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="switch-case-判断语句"><a href="#switch-case-判断语句" class="header-anchor">#</a> switch-case （判断语句）</h2> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token keyword">switch</span>基本格式
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>表达式<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> 值<span class="token number">1</span><span class="token operator">:</span>语句<span class="token number">1</span><span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> 值<span class="token number">2</span><span class="token operator">:</span>语句<span class="token number">2</span><span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> 值<span class="token number">3</span><span class="token operator">:</span>语句<span class="token number">3</span><span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token operator">:</span>语句<span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="while循环-循环语句"><a href="#while循环-循环语句" class="header-anchor">#</a> while循环 （循环语句）</h2> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>基本语法</p></div> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">// 当循环条件为true时，执行循环体，</span>
+    <span class="token comment">// 当循环条件为false时，结束循环。</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>循环条件<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">//循环体</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>示例: 计算1-100之间所有数的和</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 初始化变量</span>
+    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">// 判断条件</span>
+      sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>  <span class="token comment">// 循环体</span>
+      i<span class="token operator">++</span><span class="token punctuation">;</span>  <span class="token comment">// 自增</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="do-while循环-循环语句"><a href="#do-while循环-循环语句" class="header-anchor">#</a> do-while循环 （循环语句）</h2> <p>不管循环条件是否为true,都会先执行一遍循环体,再去判断条件</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>基本语法</p></div> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 循环体;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>循环条件<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>示例: 计算1-100的和</p> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">// 初始化变量</span>
+    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+      sum <span class="token operator">+=</span> i<span class="token punctuation">;</span><span class="token comment">//循环体</span>
+      i<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment">//自增</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//循环条件</span>
+
+</code></pre></div><h2 id="for循环-循环语句"><a href="#for循环-循环语句" class="header-anchor">#</a> for循环 （循环语句）</h2> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>基本语法</p></div> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token comment">// for循环的表达式之间用的是分号分隔的</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>初始化表达式<span class="token number">1</span><span class="token punctuation">;</span> 判断表达式<span class="token number">2</span><span class="token punctuation">;</span> 自增表达式<span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 循环体4</span>
+    <span class="token punctuation">}</span>
+
+</code></pre></div><p>示例: 打印1-100之间所有数</p> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="结束循环"><a href="#结束循环" class="header-anchor">#</a> 结束循环</h2> <ul><li>break 强制结束任何形式的循环</li></ul> <p>示例: 求200-300之间第一个能被7整数的数（break）</p> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">300</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">7</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><ul><li>continue 跳过本次循环，继续下一次循环</li></ul> <p>示例: 求1-100之间不能被7整除的整数的和（用continue）</p> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">7</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        s <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/my-Blog.github.io/note/javascript/introduction/operator.html" class="prev">
+        运算符
+      </a></span> <span class="next"><a href="/my-Blog.github.io/note/javascript/introduction/object.html">
+        对象
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/my-Blog.github.io/assets/js/app.a754fd77.js" defer></script><script src="/my-Blog.github.io/assets/js/2.9f82f5ae.js" defer></script><script src="/my-Blog.github.io/assets/js/45.e28b1265.js" defer></script>
+  </body>
+</html>

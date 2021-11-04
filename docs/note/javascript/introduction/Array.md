@@ -60,3 +60,49 @@ Array.apply(null, Array(3)).map(function (x,i) { return i })
  _.range(3).map(function () { return "a" })
 //[ 'a', 'a', 'a' ]
 ```
+
+## 关于数组的越界
+::: tip TIP
+  数组的长度大小是有限制的，最大长度为 4294967295 也就是2的32次方减2 = Math.pow(2, 32) - 2
+:::
+
+```js
+//定义一个空数组
+var a = []
+//改变length属性,使得a成为一个装满的稀疏数组,由于数组索引从0开始
+//所以最大的索引号就是Math.pow(2, 32) - 2
+a[Math.pow(2, 32) - 2] = "最大索引"
+console.log(a.length === Math.pow(2, 32) - 1)
+//true, a的length已经不能再大了
+try {
+  //再往里面push元素,铁定抛出异常
+  a.push("我比最大索引还大1", "我比最大索引还大2")
+} catch (e) {
+  console.log('数组越界', e instanceof RangeError)
+  // 数组越界, true,
+}
+console.log(a.length === Math.pow(2, 32) - 1)
+// true,长度没变,还是4294967295,那元素呢?push进去没有?
+console.log(a[Math.pow(2, 32) - 1] === "我比最大索引还大1")
+// true,居然能访问,而且值还存进去了! 
+console.log(a[Math.pow(2, 32)] === "我比最大索引还大2")
+// true,这个也是!
+try {
+  // 再push一个
+  a.push("我比最大索引还大3?");                           
+} catch (e) {
+  console.log('数组越界', e instanceof RangeError)
+  // 数组越界, true,
+}
+console.log(a[Math.pow(2, 32) + 1])
+//undefined,没有存上?
+console.log(a[Math.pow(2, 32) - 1])
+//"我比最大索引还大3?",原来是覆盖了第一个越界的元素                
+console.log(a[Math.pow(2, 32)])
+//"我比最大索引还大2",这个没被覆盖                         
+```
+JavaScript中的数组就是一个稍微有点特殊的普通对象.在Array.prototype.push方法执行时,会先把每个要push的元素push进去,也就是定义多个自身属性(ES5 15.4.4.7.5).
+
+然后才设置数组的length属性为最大的索引值+1(ES5 15.4.4.7.5),这个例子中就是Math.pow(2, 32) + 1,这时才会报错(ES5 15.4.5.1.3.d),但上面的元素已经push进去了.
+
+如果再次push的话,还会从当前的length属性-1的那个索引处开始push,也就出现了覆盖而不是继续追加的情况。

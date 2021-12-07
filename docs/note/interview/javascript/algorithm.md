@@ -107,7 +107,7 @@ const unique1 = arr => {
       return [...new Set([...document.querySelectorAll('*')].map(el => el.tagName))].length;
     }
 ```
-## 扁平数据结构转Tree
+## 树形结构和扁平化数组的相互转换
 非常常见的需求，后台返回一个扁平的数据结构，转成树
 ``` js
 	let arr = [
@@ -212,3 +212,32 @@ arrayToTree(arr)
 	// 最后调用arrayToTree得到数据树
 	arrayToTree(arr)
 ```
+
+关于tree转扁平化数组，这里递归转换的方式就不做讨论，直接上循环的方法:
+
+基本大部分递归都可以用栈的思想改为循环，将每次需要处理的元素压入栈中，处理后弹出，至栈为空
+``` js
+/**
+ * @param {obj: object} 
+ * @return {arr: array}
+ */
+function fn(arr) {
+  const stack = [];         // 声明栈，用来存储待处理元素
+  const res = [];           // 接收结果
+  stack.push(...arr);          // 将初始元素压入栈
+  while(stack.length) {     // 栈不为空则循环执行
+    const item = stack[0];  // 取出栈顶元素
+    res.push(item);         // 元素本身压入结果数组
+    stack.shift();          // 将当前元素弹出栈
+    // 逻辑处理，如果当前元素包含子元素，则将子元素压入栈
+    if (item.children && item.children.length) {
+      stack.push(...item.children);
+    }
+  }
+  return res;
+}
+
+fn(arr);
+
+```
+
